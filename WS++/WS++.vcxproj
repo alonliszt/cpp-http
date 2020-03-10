@@ -143,6 +143,8 @@
     <ClCompile Include="Sockets\Socket.cpp" />
     <ClCompile Include="Sockets\AddresInfo.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Sockets\SocketIO.cpp" />
+    <ClCompile Include="Sockets\SocketServer.cpp" />
     <ClCompile Include="Sockets\WSA.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -155,6 +157,8 @@
     <ClInclude Include="Common\Standard\Strings.h" />
     <ClInclude Include="Common\Standard\Types.h" />
     <ClInclude Include="Sockets\SocketHeader.h" />
+    <ClInclude Include="Sockets\SocketIO.h" />
+    <ClInclude Include="Sockets\SocketServer.h" />
     <ClInclude Include="Sockets\WSA.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

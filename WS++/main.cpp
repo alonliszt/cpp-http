@@ -1,13 +1,20 @@
 #include <iostream>
 
 #include "Common.h"
-#include "Sockets/WSA.h"
+#include "Sockets/SocketServer.h"
 
 int main()
 {
-	_WSA::get_main();
-
-	std::cout << std::format("Hello % world!", 5) << std::endl;
-
-	std::bytes x;
+	try
+	{
+		SocketServer server;
+		auto socket = server.accept();
+		auto [reader, writer] = socket.create_io();
+		std::cout << reader.readline() << std::endl;
+		writer.write_str("Thanks for the info :)");
+	}
+	catch (Socket::Error & err)
+	{
+		std::cout << err.what() << std::endl;
+	}
 }
