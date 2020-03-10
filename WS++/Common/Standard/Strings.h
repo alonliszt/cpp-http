@@ -26,4 +26,9 @@ namespace std
 		rtrim_inplace(s);
 		return std::move(s);
 	}
+
+	inline bool isblank(std::string& s)
+	{
+		return std::find_if(s.begin(), s.end(), [](char c) { return !std::isspace(c); }) == s.end();
+	}
 }

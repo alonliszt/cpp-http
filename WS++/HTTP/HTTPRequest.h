@@ -2,6 +2,7 @@
 
 #include <string>
 #include <regex>
+#include <map>
 
 #include "../Common.h"
 #include "HTTPErrors.h"
@@ -18,6 +19,7 @@ namespace HTTP
 		HTTP::Version version;
 		HTTP::Method method;
 		std::string path;
+		std::map<std::string, std::string> headers;
 
 	private:
 		void parse_method();

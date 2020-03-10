@@ -9,7 +9,7 @@ HTTP::Request::Request(ITextReader& reader)
 
 void HTTP::Request::parse_method()
 {
-	std::regex regex("HTTP\\/(\\d\\.?\\d?) ([A-Za-z]+) (.+)");
+	std::regex regex("([A-Za-z]+) ([^\\s]+) HTTP\\/(\\d\\.?\\d?)");
 	std::smatch match;
 
 	std::string method_line = std::trim(m_reader.readline());
@@ -19,13 +19,28 @@ void HTTP::Request::parse_method()
 		throw HTTP::ParseError("Could not parse method line: " + method_line);
 	}
 
-	version = HTTP::parse_version(match[1].str());
-	method = HTTP::parse_method(match[2].str());
-	path = match[3].str();
+	method = HTTP::parse_method(match[1].str());
+	path = match[2].str();
+	version = HTTP::parse_version(match[3].str());
 }
 
 
 void HTTP::Request::parse_headers()
 {
+	std::string line;
+	while (!std::isblank(line = m_reader.readline()))
+	{
+		auto colon_index = std::find(line.begin(), line.end(), ':');
+		if (colon_index == line.end())
+		{
+			throw HTTP::ParseError("Could not parse header line: " + line);
+		}
 
+		std::string key = std::string(line.begin(), colon_index);
+		std::string value = std::trim(std::string(colon_index + 1, line.end()));
+
+		headers[key] = value;
+
+	}
+	std::cout << "End of headers" << std::endl;
 }

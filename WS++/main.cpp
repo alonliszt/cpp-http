@@ -13,6 +13,14 @@ void handle_socket(Socket& socket)
 
 		HTTP::Request req(reader);
 		std::cout << "A request to " << req.path << std::endl;
+
+		std::string line;
+		while ((line = reader.readline()).size() > 0)
+		{
+			std::cout << line << std::endl;
+		}
+
+		std::cout << "============= END OF REQUEST ===============" << std::endl;
 	}
 	catch (HTTP::Error & err)
 	{
