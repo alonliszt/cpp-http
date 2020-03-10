@@ -138,6 +138,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Common.h" />
+    <ClInclude Include="Common\Standard\Format.hpp" />
+    <ClInclude Include="Common\IO\IO.hpp" />
+    <ClInclude Include="Common\Standard\Strings.hpp" />
+    <ClInclude Include="Common\Standard\Types.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
