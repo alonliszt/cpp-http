@@ -3,7 +3,7 @@
 #include <string>
 #include <sstream>
 
-#include "../Standard/Types.hpp"
+#include "../Standard/Types.h"
 
 class IWriter
 {
@@ -62,7 +62,7 @@ public:
 
 		while (!pred(next = read()) && next != std::char_traits<char>::eof())
 		{
-			s.put(next);
+			s.put(static_cast<char>(next));
 		}
 
 		return s.str();

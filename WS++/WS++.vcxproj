@@ -95,10 +95,12 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -138,14 +140,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Sockets\Socket.cpp" />
+    <ClCompile Include="Sockets\AddresInfo.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Sockets\WSA.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Common\Standard\Errors.h" />
+    <ClInclude Include="Sockets\Socket.h" />
+    <ClInclude Include="Sockets\AddresInfo.h" />
     <ClInclude Include="Common.h" />
-    <ClInclude Include="Common\Standard\Format.hpp" />
-    <ClInclude Include="Common\IO\IO.hpp" />
-    <ClInclude Include="Common\Standard\Strings.hpp" />
-    <ClInclude Include="Common\Standard\Types.hpp" />
+    <ClInclude Include="Common\Standard\Format.h" />
+    <ClInclude Include="Common\IO\IO.h" />
+    <ClInclude Include="Common\Standard\Strings.h" />
+    <ClInclude Include="Common\Standard\Types.h" />
+    <ClInclude Include="Sockets\SocketHeader.h" />
+    <ClInclude Include="Sockets\WSA.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,6 +1,9 @@
 #pragma once
 
-#include "Common/Standard/Format.hpp"
-#include "Common/Standard/Strings.hpp"
-#include "Common/Standard/Types.hpp"
-#include "Common/IO/IO.hpp"
+#include <string>
+
+#include "Common/Standard/Errors.h"
+#include "Common/Standard/Format.h"
+#include "Common/Standard/Strings.h"
+#include "Common/Standard/Types.h"
+#include "Common/IO/IO.h"
