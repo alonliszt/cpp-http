@@ -3,13 +3,21 @@
 #include "Common.h"
 #include "Sockets/AsyncSocketServer.h"
 
+#include "HTTP/HTTPRequest.h"
+
 void handle_socket(Socket& socket)
 {
-	std::cout << "Connection started " << socket.to_string() << std::endl;
+	try
+	{
+		auto [reader, writer] = socket.create_io();
 
-	auto [reader, writer] = socket.create_io();
-	std::cout << reader.readline() << std::endl;
-	writer.write_str("Thanks for the info :)");
+		HTTP::Request req(reader);
+		std::cout << "A request to " << req.path << std::endl;
+	}
+	catch (HTTP::Error & err)
+	{
+		std::cout << "HTTP error: " << err.what() << std::endl;
+	}
 }
 
 int main()

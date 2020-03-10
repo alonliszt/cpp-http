@@ -10,6 +10,7 @@ void AsyncSocketServer::set_handler(AsyncSocketServer::handler_func func)
 
 void AsyncSocketServer::serve_forever()
 {
+	// Implementation might change
 	accept_loop();
 }
 
