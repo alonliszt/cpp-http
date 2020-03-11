@@ -4,6 +4,17 @@
 #include "Sockets/AsyncSocketServer.h"
 
 #include "HTTP/Request.h"
+#include "HTTP/Response.h"
+
+class ConsoleWriter : public ITextWriter
+{
+public:
+	void write(std::bytes b) override
+	{
+		std::string s(b.begin(), b.end());
+		std::cout << s;
+	}
+};
 
 void handle_socket(Socket& socket)
 {
@@ -13,6 +24,11 @@ void handle_socket(Socket& socket)
 
 		HTTP::Request req(reader);
 		std::cout << "A request to " << req.path << std::endl;
+
+		HTTP::Response res;
+		res.set_body("Hello, world!");
+
+		res.write(writer);
 	}
 	catch (HTTP::ErrorCode & err)
 	{

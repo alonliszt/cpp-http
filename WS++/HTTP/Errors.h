@@ -55,4 +55,9 @@ namespace HTTP
 	{
 		NotImplemented(const std::string& msg) : ServerError("Not Implemented", msg, 501) {}
 	};
+
+	struct VersionNotSupported : public ServerError
+	{
+		VersionNotSupported(const std::string& msg) : ServerError("Version Not Supported", msg, 505) {}
+	};
 }

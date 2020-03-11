@@ -1,29 +1,18 @@
 #include "Version.h"
 
-HTTP::Version parse_version(std::string s)
+std::map<std::string, HTTP::Version> version_map
 {
-	if (s == "1.0")
-	{
-		return HTTPVersion::HTTP_1_0;
-	}
-	else if (s == "1.1")
-	{
-		return HTTPVersion::HTTP_1_1;
-	}
-
-	throw HTTP::VerisonError(std::format("Version % not supported", s));
-}
+	{ "1.0", HTTPVersion::HTTP_1_0 },
+	{ "1.1", HTTPVersion::HTTP_1_1 }
+};
 
 HTTP::Version HTTP::parse_version(std::string s)
 {
-	if (s == "1.0")
+	auto el = version_map.find(s);
+	if (el == version_map.end())
 	{
-		return HTTPVersion::HTTP_1_0;
-	}
-	else if (s == "1.1")
-	{
-		return HTTPVersion::HTTP_1_1;
+		throw HTTP::VersionNotSupported(std::format("Version % not supported", s));
 	}
 
-	throw HTTP::VerisonError(std::format("Version % not supported", s));
+	return (*el).second;
 }

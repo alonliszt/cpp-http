@@ -37,8 +37,7 @@ namespace std
 
 		_format_stream(output, input, args...); // Formatting all arguments
 
-		std::string leftover;
-		std::getline(input, leftover);
+		std::string leftover(input.str().substr(input.tellg()));
 		output << leftover;
 
 		return output.str();

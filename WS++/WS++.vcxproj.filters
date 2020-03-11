@@ -45,6 +45,12 @@
     <ClCompile Include="HTTP\Version.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="HTTP\Response.h">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HTTP\Response.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common.h">
