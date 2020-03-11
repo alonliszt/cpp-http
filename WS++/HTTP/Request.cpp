@@ -1,4 +1,4 @@
-#include "HTTPRequest.h"
+#include "Request.h"
 
 HTTP::Request::Request(ITextReader& reader)
 	: m_reader(reader)

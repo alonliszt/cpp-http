@@ -5,9 +5,9 @@
 #include <map>
 
 #include "../Common.h"
-#include "HTTPErrors.h"
-#include "HTTPVersion.h"
-#include "HTTPMethod.h"
+#include "Errors.h"
+#include "Version.h"
+#include "Method.h"
 
 namespace HTTP
 {

@@ -140,9 +140,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="HTTP\HTTPMethod.cpp" />
-    <ClCompile Include="HTTP\HTTPRequest.cpp" />
-    <ClCompile Include="HTTP\HTTPVersion.cpp" />
+    <ClCompile Include="HTTP\Method.cpp" />
+    <ClCompile Include="HTTP\Request.cpp" />
+    <ClCompile Include="HTTP\Version.cpp" />
     <ClCompile Include="Sockets\AsyncSocketServer.cpp" />
     <ClCompile Include="Sockets\Socket.cpp" />
     <ClCompile Include="Sockets\AddresInfo.cpp" />
@@ -153,10 +153,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common\Standard\Errors.h" />
-    <ClInclude Include="HTTP\HTTPErrors.h" />
-    <ClInclude Include="HTTP\HTTPMethod.h" />
-    <ClInclude Include="HTTP\HTTPRequest.h" />
-    <ClInclude Include="HTTP\HTTPVersion.h" />
+    <ClInclude Include="HTTP\Errors.h" />
+    <ClInclude Include="HTTP\Method.h" />
+    <ClInclude Include="HTTP\Request.h" />
+    <ClInclude Include="HTTP\Time.h" />
+    <ClInclude Include="HTTP\Version.h" />
     <ClInclude Include="Sockets\AsyncSocketServer.h" />
     <ClInclude Include="Sockets\Socket.h" />
     <ClInclude Include="Sockets\AddresInfo.h" />

@@ -3,7 +3,7 @@
 #include <iostream>
 
 #include "../Common.h"
-#include "HTTPErrors.h"
+#include "Errors.h"
 
 namespace HTTPVersion
 {

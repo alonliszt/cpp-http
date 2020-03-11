@@ -36,13 +36,13 @@
     <ClCompile Include="Sockets\AsyncSocketServer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="HTTP\HTTPRequest.cpp">
+    <ClCompile Include="HTTP\Method.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="HTTP\HTTPVersion.cpp">
+    <ClCompile Include="HTTP\Request.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="HTTP\HTTPMethod.cpp">
+    <ClCompile Include="HTTP\Version.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -86,16 +86,19 @@
     <ClInclude Include="Sockets\AsyncSocketServer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="HTTP\HTTPRequest.h">
+    <ClInclude Include="HTTP\Errors.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="HTTP\HTTPMethod.h">
+    <ClInclude Include="HTTP\Method.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="HTTP\HTTPVersion.h">
+    <ClInclude Include="HTTP\Request.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="HTTP\HTTPErrors.h">
+    <ClInclude Include="HTTP\Version.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HTTP\Time.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

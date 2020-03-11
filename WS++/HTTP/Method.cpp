@@ -1,4 +1,4 @@
-#include "HTTPMethod.h"
+#include "Method.h"
 
 HTTP::Method HTTP::parse_method(std::string str)
 {
@@ -11,5 +11,5 @@ HTTP::Method HTTP::parse_method(std::string str)
 	else if (str == "TRACE") return HTTPMethod::TRACE;
 	else if (str == "CONNECT") return HTTPMethod::CONNECT;
 	else
-		throw HTTP::MethodError("Could not parse HTTP method " + str);
+		throw HTTP::NotImplemented(std::format("Method % is not supported", str));
 }
