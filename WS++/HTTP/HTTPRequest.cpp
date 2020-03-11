@@ -28,16 +28,29 @@ void HTTP::Request::parse_method()
 void HTTP::Request::parse_headers()
 {
 	std::string line;
-	while (!std::isblank(line = m_reader.readline()))
+
+	std::string key;
+	std::string value;
+
+	while ((line = m_reader.readline()).size() > 0)
 	{
+		// Check if the line is a continuation line, then append the line to the previous key
+		if (std::isspace(line[0]))
+		{
+			std::ltrim_inplace(line);
+			headers[key] += line;
+			continue;
+		}
+
+		// Otherwise, parse the line as a new header line
 		auto colon_index = std::find(line.begin(), line.end(), ':');
 		if (colon_index == line.end())
 		{
 			throw HTTP::ParseError("Could not parse header line: " + line);
 		}
 
-		std::string key = std::string(line.begin(), colon_index);
-		std::string value = std::trim(std::string(colon_index + 1, line.end()));
+		key = std::string(line.begin(), colon_index);
+		value = std::trim(std::string(colon_index + 1, line.end()));
 
 		headers[key] = value;
 

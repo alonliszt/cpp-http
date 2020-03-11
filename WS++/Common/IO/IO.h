@@ -75,7 +75,12 @@ public:
 
 	virtual std::string readline()
 	{
-		return read_until('\n');
+		char lst = '\0';
+		return read_until([&lst](int c) {
+			bool success = c == '\n' && lst == '\r';
+			lst = static_cast<char>(c);
+			return success;
+		});
 	}
 
 	virtual std::string readword()
