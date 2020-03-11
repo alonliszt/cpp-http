@@ -50,7 +50,8 @@ void HTTP::Request::parse_headers()
 		}
 
 		key = std::string(line.begin(), colon_index);
-		value = std::trim(std::string(colon_index + 1, line.end()));
+		value = std::string(colon_index + 1, line.end());
+		std::ltrim_inplace(value);
 
 		headers[key] = value;
 

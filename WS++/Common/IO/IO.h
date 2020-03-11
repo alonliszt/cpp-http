@@ -76,11 +76,14 @@ public:
 	virtual std::string readline()
 	{
 		char lst = '\0';
-		return read_until([&lst](int c) {
+		std::string result = read_until([&lst](int c) {
 			bool success = c == '\n' && lst == '\r';
 			lst = static_cast<char>(c);
 			return success;
 		});
+
+		result.pop_back(); // Popping the CR out
+		return result;
 	}
 
 	virtual std::string readword()
