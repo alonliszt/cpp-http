@@ -3,6 +3,7 @@
 #include <string>
 
 #include "Version.h"
+#include "Errors.h"
 
 namespace HTTP
 {
@@ -10,6 +11,7 @@ namespace HTTP
 	{
 	public:
 		Response(int status, std::string response_text);
+		Response(const HTTP::ErrorCode& error);
 		Response() : Response(200, "OK") {}
 
 		std::uint32_t status;
