@@ -82,7 +82,10 @@ public:
 			return success;
 		});
 
-		result.pop_back(); // Popping the CR out
+		if (result.size() > 0 && *(result.end() - 1) == '\r')
+		{
+			result.pop_back(); // Popping the CR out
+		}
 		return result;
 	}
 

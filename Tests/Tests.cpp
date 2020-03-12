@@ -3,7 +3,7 @@
 
 #include <string>
 
-#include "../WS++/Common.h"
+#include "../CppHTTP/Common.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
