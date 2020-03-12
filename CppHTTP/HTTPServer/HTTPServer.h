@@ -10,22 +10,25 @@
 #include "../Sockets/AsyncSocketServer.h"
 
 // HTTP Server implementation over AsyncSocketServer
-class HTTPServer
+namespace HTTP
 {
-public:
-	using ViewFunc = std::function<HTTP::Response(HTTP::Request)>;
-	using Handler = std::tuple<std::regex, ViewFunc>;
+	class Server
+	{
+	public:
+		using ViewFunc = std::function<HTTP::Response(HTTP::Request)>;
+		using Handler = std::tuple<std::regex, ViewFunc>;
 
-	HTTPServer(std::uint16_t port);
-	
-	void add_handler(std::string path, ViewFunc handler);
+		Server(std::uint16_t port);
 
-	void listen_forever();
+		void add_handler(std::string path, ViewFunc handler);
 
-private:
-	std::uint16_t m_port;
-	std::unique_ptr<AsyncSocketServer> m_server;
-	std::vector<Handler> m_handlers;
+		void listen_forever();
 
-	void socket_handler(Socket& s);
-};
+	private:
+		std::uint16_t m_port;
+		std::unique_ptr<AsyncSocketServer> m_server;
+		std::vector<Handler> m_handlers;
+
+		void socket_handler(Socket& s);
+	};
+}

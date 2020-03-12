@@ -4,21 +4,21 @@
 
 #include "HTTPServer/HTTPServer.h"
 
+HTTP::Response index(HTTP::Request req)
+{
+	std::cout << "Received request!" << std::endl;
+
+	return HTTP::Response(HTTP::OK{
+		std::format("You are sending the request from: %", req.headers["User-Agent"])
+	});
+}
+
 int main()
 {
 	try
 	{
-		HTTPServer server(8080);
-		server.add_handler("/hello", [](HTTP::Request req) -> HTTP::Response {
-			std::cout << "Received request!" << std::endl;
-			
-			HTTP::Response res(200, "OK");
-			res.set_body(
-				std::format("You are sending the request from: %", req.headers["User-Agent"])
-			);
-
-			return res;
-		});
+		HTTP::Server server(8080);
+		server.add_handler("/", index);
 		server.listen_forever();
 	}
 	catch (Socket::Error & err)

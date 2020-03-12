@@ -1,14 +1,14 @@
 #include "HTTPServer.h"
 
-HTTPServer::HTTPServer(std::uint16_t port)
+HTTP::Server::Server(std::uint16_t port)
 	: m_port(port) {}
 
-void HTTPServer::add_handler(std::string path, ViewFunc handler)
+void HTTP::Server::add_handler(std::string path, ViewFunc handler)
 {
 	m_handlers.push_back(Handler(std::regex(path), handler));
 }
 
-void HTTPServer::listen_forever()
+void HTTP::Server::listen_forever()
 {
 	m_server = std::make_unique<AsyncSocketServer>(m_port);
 	m_server->set_handler([this](Socket& s) {
@@ -17,7 +17,7 @@ void HTTPServer::listen_forever()
 	m_server->serve_forever();
 }
 
-void HTTPServer::socket_handler(Socket& s)
+void HTTP::Server::socket_handler(Socket& s)
 {
 	auto [reader, writer] = s.create_io();
 	HTTP::Request req(reader);
@@ -31,6 +31,10 @@ void HTTPServer::socket_handler(Socket& s)
 			};
 
 			res.write(writer);
+
+			std::cout << "Reading more" << std::endl;
+			reader.readline();
+			std::cout << "Finished" << std::endl;
 			return;
 		}
 	}
