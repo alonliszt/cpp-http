@@ -147,6 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="HTTPServer\HTTPServer.cpp" />
     <ClCompile Include="HTTP\Method.cpp" />
     <ClCompile Include="HTTP\Request.cpp" />
     <ClCompile Include="HTTP\Response.cpp" />
@@ -162,6 +163,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common\Standard\Errors.h" />
+    <ClInclude Include="HTTPServer\HTTPServer.h" />
     <ClInclude Include="HTTP\Errors.h" />
     <ClInclude Include="HTTP\Method.h" />
     <ClInclude Include="HTTP\Request.h" />

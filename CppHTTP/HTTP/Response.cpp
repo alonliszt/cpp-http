@@ -6,8 +6,17 @@ HTTP::Response::Response(int status, std::string response_text)
 		{ "Content-Type", "text/plain; utf-8" },
 } {}
 
+HTTP::Response::Response(int status, std::string response_text, std::string body)
+	: Response(status, response_text)
+{
+	set_body(body);
+}
+
 HTTP::Response::Response(const HTTP::ErrorCode& error)
-	: status(error.status()), response_text(error.to_string()) {}
+	: status(error.status()), response_text(error.to_string())
+{
+	set_body(error.what());
+}
 
 const std::bytes& HTTP::Response::get_body() const
 {

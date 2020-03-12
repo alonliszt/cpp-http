@@ -56,5 +56,4 @@ void HTTP::Request::parse_headers()
 		headers[key] = value;
 
 	}
-	std::cout << "End of headers" << std::endl;
 }

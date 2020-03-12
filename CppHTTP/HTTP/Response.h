@@ -11,6 +11,7 @@ namespace HTTP
 	{
 	public:
 		Response(int status, std::string response_text);
+		Response(int status, std::string response_text, std::string body);
 		Response(const HTTP::ErrorCode& error);
 		Response() : Response(200, "OK") {}
 
